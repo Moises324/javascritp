@@ -10,27 +10,56 @@
 
   <body>
     <section>
-      <div class="card">
-        <div class="img-card"></div>
-        <h6>Laptop Gamer AMD</h6>
-        <p>Precio base: <span id="Precio">$400000</span></p>
-        <p>
-          Cantidad: <span id="cantidad">2</span>
-          <button
-            onclick=" let cantidad = document.querySelector('#cantidad').innerHTML; 
-                let total = parseInt(cantidad.innerHTML) * 400000 
-                cantidad.innerHTML=parseInt(cantidad.innerHTML) + 1
-                document.querySelector ('#resultado').innerHTML = total"
-          >
-            +
-          </button>
-          <button>-</button>
-        </p>
-      </div>
+        <div class="card">
+            <div class="img-card"></div>
+              <h6>Laptop Gamer AMD</h6>
+              <p>Precio base: $<span id="price">4000</span> </p>
+        
+              <p>Cantidad:
+                <span id="cantidad">0</span>
+                <button 
+                  onclick="
+                    //obtengo el elemento con el id cantidad 
+                    amount = document.querySelector('#cantidad')
+                    // Obtengo el elemento y el texto que tiene el id price
+                    price = document.querySelector('#price').innerHTML
+                    // transformo el texto del elemento con id cantidad y lo transformo en un numero
+                    increase = parseInt(amount.innerHTML)
+                    // Incemento la cantidad selecciona en 1
+                    increase = increase + 1
+                    amount.innerHTML = increase
+                    // Seleciono el elemento con el id total
+                    total = document.querySelector('#total')
+                    // El texto del elemeto con el id total lo igual a la cantidad por el precio en numero entero
+                    total.innerHTML = increase * parseInt(price)
+
+                  "
+                >+</button>
+                <button
+                  onclick="
+                  //obtengo el elemento con el id cantidad 
+                  amount = document.querySelector('#cantidad')
+                  // Obtengo el elemento y el texto que tiene el id price
+                  price = document.querySelector('#price').innerHTML
+                  // transformo el texto del elemento con id cantidad y lo transformo en un numero
+                  decrease = parseInt(amount.innerHTML)
+                  // Reto la cantidad seleccionada en 1
+                  decrease = decrease - 1
+                  amount.innerHTML = decrease
+                  // Seleciono el elemento con el id total
+                  total = document.querySelector('#total')
+                  // El texto del elemeto con el id total lo igual a la cantidad por el precio en numero entero
+                  total.innerHTML = decrease * parseInt(price)
+              "
+                >-</button>
+              </p>
+            </div>
+
+        </div>
     </section>
 
-    <p id="#total">Total a pagar: $</p>
-
-    <script src="index.js"></script>
-  </body>
+    <div class="total-section">
+        <p>Total a pagar: $<span id="total"></span> </p>
+    </div>
+</body>
 </html>
